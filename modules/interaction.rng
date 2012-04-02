@@ -21,10 +21,10 @@
     <interleave>
       <optional>
         <attribute name="pairs">
-          <a:documentation> The pairs attribute can be used to select body pairs in the system
-            that we want to apply this interaction on. If a group or transform is selected, all
-            contained pairs will be selected. If the pairs attribute is empty, all pairs in the
-            parent system will be selected.</a:documentation>
+          <a:documentation> The pairs attribute can be used to select body pairs in the system that
+            we want to apply this interaction on. If a group or transform is selected, all contained
+            pairs will be selected. If the pairs attribute is empty, all pairs in the parent system
+            will be selected.</a:documentation>
           <data type="IDREFS"/>
         </attribute>
       </optional>
