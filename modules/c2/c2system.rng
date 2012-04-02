@@ -12,6 +12,21 @@
           <ref name="c2rigidbody"/>
         </element>
       </zeroOrMore>
+
+      <optional>
+        <element name="gravity">
+          <optional>
+            <attribute name="direction" a:defaultValue="0 -1">
+              <ref name="vec2"/>
+            </attribute>
+          </optional>
+          <optional>
+            <attribute name="magnitude" a:defaultValue="9.82">
+              <data type="float"/>
+            </attribute>
+          </optional>
+        </element>
+      </optional>
     </interleave>
   </define>
 

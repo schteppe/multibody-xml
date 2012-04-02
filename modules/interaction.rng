@@ -21,9 +21,19 @@
     <interleave>
       <optional>
         <attribute name="pairs">
-          <a:documentation> The "pairs" attribute can be used to select body pairs in the system
-            that we want to apply this interaction on. Type is XPath. If a group or transform is
-            selected, all contained pairs will be selected.</a:documentation>
+          <a:documentation> The pairs attribute can be used to select body pairs in the system
+            that we want to apply this interaction on. If a group or transform is selected, all
+            contained pairs will be selected. If the pairs attribute is empty, all pairs in the
+            parent system will be selected.</a:documentation>
+          <data type="IDREFS"/>
+        </attribute>
+      </optional>
+
+      <optional>
+        <attribute name="each">
+          <a:documentation>Like the pairs attribute, the each attribute contains a list of ID's to
+            apply the interaction on. If no ID's are given, the interaction applies on all
+            applicable elements.</a:documentation>
           <data type="IDREFS"/>
         </attribute>
       </optional>

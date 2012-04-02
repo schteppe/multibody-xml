@@ -24,11 +24,7 @@
       <velocities linear="10 0"/>
     </rigidBody>
    
-    <interaction>
-      <param name="type" value="gravity"/>
-      <param name="magnitude" value="9.82"/>
-      <param name="direction" value="0 0 -1"/>
-    </interaction>
+    <gravity/>
     
   </cartesian2dSystem>
 
