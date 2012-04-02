@@ -1,0 +1,17 @@
+<grammar
+   xmlns="http://relaxng.org/ns/structure/1.0"		
+   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+
+  <define name="polygon">
+    <a:documentation>
+      A convex polygon...?
+    </a:documentation>
+
+    <ref name="shape"/>
+    <optional>
+      <attribute name="vertices"></attribute>
+    </optional>
+  </define>
+
+</grammar>

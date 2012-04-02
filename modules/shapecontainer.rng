@@ -1,0 +1,31 @@
+<grammar 
+   xmlns="http://relaxng.org/ns/structure/1.0"	
+   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+
+  <define name="shapecontainer">
+    <a:documentation>
+      The shapecontainer can contain shapes and transformed shapes. We needed to define this type explicitly to use it recursively with transforms.
+
+      Allow any geometry here too?
+    </a:documentation>
+
+    <zeroOrMore>
+      <choice>
+	<optional>
+	  <element name="transform">
+	    <ref name="transform"/>
+	    <ref name="shapecontainer"/>
+	  </element>
+	</optional>
+	<optional><element name="sphere"><ref name="sphere" /></element></optional>
+	<optional><element name="plane"> <ref name="plane"/>  </element></optional>
+	<optional><element name="surface"><ref name="surface" /></element></optional>
+	<optional><element name="polygon"><ref name="polygon" /></element></optional>
+	<optional><element name="circle"><ref name="circle" /></element></optional>
+	<optional><element name="rectangle"><ref name="rectangle" /></element></optional>
+      </choice>
+    </zeroOrMore>
+
+  </define>
+</grammar>

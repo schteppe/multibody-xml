@@ -1,0 +1,12 @@
+<grammar
+   xmlns="http://relaxng.org/ns/structure/1.0"		
+   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+  <define name="surface">
+    <ref name="shape"/>
+    <optional>
+      <attribute name="normal"><ref name="vec2"/></attribute>
+    </optional>
+  </define>
+
+</grammar>

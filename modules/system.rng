@@ -1,0 +1,42 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+
+  <define name="system">
+
+    <!-- todo: add general rigid body class here -->
+    <empty></empty>
+    
+    <a:documentation> Defines the physics scene. The scene contains a system and subsystems. The
+      system includes all bodies and all interactions, all input and output ports and signals, all
+      filters, followers and events. The system contains the global time stepper. Subsystems can
+      have slave steppers for the case of co-simulation. For instance, simulating a vehicle with
+      NewEul2 and granular matter with SPH, and coupling the two together. Another example includes
+      Simulink with, say, an ADAMS model and a hydraulics library. The latter two usually come with
+      their own time stepper and Simulink does the co-simulation. The scene is independent and
+      contains the method to animate the entire hierarchy below.  This is the Stepper. Objects in a
+      scene are arranged in Subsystems which contain the elements which have kinematic attributes.
+      The animation of the elements in the Subsystems could either be a simulation or a playback
+      from stored kinematic data. The Stepper is responsible to update all the kinematic data of all
+      children elements by executing the steppers in the subsystems and synchronize the
+      communication needed for co-simulation. The Stepper knows the global time. The Stepper must be
+      a black box. It’s interface is to be determined later. In particular, we should support the
+      Simulink, Siconos, and conventional rigid body steppers, and maybe discrete event simulations,
+      etc. The configuration parameters for the different steppers are not part of the schema itself
+      but are extensions (??? how ????). The scene must also contain some global parameters for
+      inputs and outputs, and global interaction manager. Maybe there should not be a stepper at all
+      here, except maybe as a hint. The point is that the scene should be entirely
+      method-independent, leaving it to the specific loader and simulation engine to choose what to
+      do with the system. Here again, COLLADA makes the error of putting parameters in the XML file
+      such as time step and gravity direction and magnitude. But since only the initial positions
+      are specified in COLLADA, the time step is entirely irrelevant as it can be set in the
+      application. The system can contain one or several subsystems, and the latter can be recursive
+      as well. The bodies and interaction belong to subsystems. But a complete simulation might have
+      a variable number of bodies and interactions and for the purpose of playback at least, it must
+      be possible to change from one subsystem to another. An application would do changes in
+      subsystems incrementally via events and presumably, one could offer functionality to add and
+      delete subsystems in sequence. One could presumably add one extra hierarchical layer with
+      groups and subgroups which would contain only bodies and constraints, leaving input and output
+      ports to the subsystem. </a:documentation>
+  </define>
+</grammar>

@@ -1,0 +1,32 @@
+<grammar 
+   xmlns="http://relaxng.org/ns/structure/1.0"	
+   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+
+  <define name="mat4">
+    <a:documentation>
+      a 4x4 matrix
+    </a:documentation>
+
+    <list>
+      <data type="float"/>
+      <data type="float"/>
+      <data type="float"/>
+      <data type="float"/>
+      <data type="float"/>
+      <data type="float"/>
+      <data type="float"/>
+      <data type="float"/>
+      <data type="float"/>
+      <data type="float"/>
+      <data type="float"/>
+      <data type="float"/>
+      <data type="float"/>
+      <data type="float"/>
+      <data type="float"/>
+      <data type="float"/>
+    </list>
+    
+  </define>
+
+</grammar>

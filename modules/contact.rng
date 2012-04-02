@@ -1,0 +1,44 @@
+<grammar
+   xmlns="http://relaxng.org/ns/structure/1.0"		
+   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+
+  <define name="contact">
+    <a:documentation>
+      The contact material specifies how to compute contact forces between two bodies. But since the physics of contacts is very complicated, there is a difficulty in representing both extensive data needed by sophisticated models and simplified ones. For instance, game engines typically define a single friction coefficient, as well as damping, restitution, and “softness”. But dry friction requires both static and kinetic friction parameters, and there could be anisotropy as well for orthotropic friction models and even worse, kinetic friction is in fact velocity dependent.
+
+      So we get to a common problem namely, that the basic schema cannot be encumbered with long list of problem specific attribute but allow easy extensions lest it be of limited usefulness and so restricted to a small audience.
+    </a:documentation>
+    
+
+    <!-- Extend interaction class -->
+    <ref name="interaction"/>
+
+    <!-- Fallback properties if there is no materials defined in the bodies -->
+    <ref name="materialAttributes"/>
+
+    <!-- Contact material table -->
+    <zeroOrMore>
+      <element name="contactMaterial">
+	<ref name="materialAttributes"/>
+	<attribute name="m1">
+	  <text/>
+	</attribute>
+	<attribute name="m2">
+	  <text/>
+	</attribute>
+      </element>
+    </zeroOrMore>
+  </define>
+
+  <define name="materialAttributes">
+    <interleave>
+      <optional><attribute name="restitution"/></optional>
+      <optional><attribute name="damping"/></optional>
+      <optional><attribute name="kinematicFriction"/></optional>
+      <optional><attribute name="staticFriction"/></optional>
+      <optional><attribute name="friction"/></optional>
+    </interleave>
+  </define>
+
+</grammar>

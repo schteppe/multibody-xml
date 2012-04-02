@@ -1,0 +1,80 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+  <include href="modules/bodycontainer.rng"/>
+  <include href="modules/body.rng"/>
+  <include href="modules/contact.rng"/>
+  <include href="modules/circle.rng"/>
+  <include href="modules/damping.rng"/>
+  <include href="modules/forcefield.rng"/>
+  <include href="modules/head.rng"/>
+  <include href="modules/interaction.rng"/>
+  <include href="modules/param.rng"/>
+  <include href="modules/polygon.rng"/>
+  <include href="modules/plane.rng"/>
+  <include href="modules/rectangle.rng"/>
+  <include href="modules/refobject.rng"/>
+  <include href="modules/rigidbody.rng"/>
+  <include href="modules/shape.rng"/>
+  <include href="modules/shapecontainer.rng"/>
+  <include href="modules/sphere.rng"/>
+  <include href="modules/surface.rng"/>
+  <include href="modules/system.rng"/>
+  <include href="modules/stepper.rng"/>
+  <include href="modules/transform.rng"/>
+
+  <include href="modules/math/vec2.rng"/>
+  <include href="modules/math/vec3.rng"/>
+  <include href="modules/math/vec4.rng"/>
+  <include href="modules/math/mat3.rng"/>
+  <include href="modules/math/mat4.rng"/>
+  
+  <include href="modules/c2/c2system.rng"/>
+  <include href="modules/c2/c2rigidbody.rng"/>
+  
+  <include href="modules/c3/c3system.rng"/>
+  <include href="modules/c3/c3rigidbody.rng"/>
+
+  <start>
+    <element name="multiBodySystem">
+      <interleave>
+        <optional>
+          <attribute name="units">
+            <choice>
+              <value>si</value>
+              <value>cgs</value>
+            </choice>
+          </attribute>
+        </optional>
+      </interleave>
+
+      <interleave>
+        <optional>
+          <element name="head">
+            <ref name="head"/>
+          </element>
+        </optional>
+
+        <choice>
+          <element name="system">
+            <ref name="system"/>
+          </element>
+          <element name="cartesian2dSystem">
+            <ref name="c2system"/>
+          </element>
+          <element name="cartesian3dSystem">
+            <ref name="c3system"/>
+          </element>
+        </choice>
+
+        <optional>
+          <element name="stepper">
+            <ref name="stepper"/>
+          </element>
+        </optional>
+
+      </interleave>
+
+    </element>
+  </start>
+</grammar>

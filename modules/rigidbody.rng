@@ -1,0 +1,21 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+  <define name="rigidbody">
+    <ref name="body"/>
+    <!--
+    <interleave>
+      <optional>
+        <element name="physical">
+          <ref name="shapecontainer"/>
+        </element>
+      </optional>
+      <optional>
+        <element name="visual">
+          <ref name="shapecontainer"/>
+        </element>
+      </optional>
+    </interleave>
+    -->
+  </define>
+</grammar>

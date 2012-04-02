@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../multibody.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<multiBodySystem>
+  <head>
+    <author>Stefan Hedman</author>
+  </head>
+  <cartesian3dSystem>
+    <rigidBody>
+      <coordinate position="0 0 0" orientation="0 0 0 1"/>
+    </rigidBody>
+    <rigidBody>
+      <coordinate
+        transform="1 0 0 0
+                   0 1 0 0
+                   0 0 1 0
+                   0 0 0 1"/>
+    </rigidBody>
+  </cartesian3dSystem>
+</multiBodySystem>

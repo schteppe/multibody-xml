@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../multibody.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<multiBodySystem>
+  
+  <head>
+    <title>Ball on plane 2D</title>
+    <description>A simple scene with a ball on a plane.</description>
+    <author>Stefan Hedman</author>
+    <company>UMIT Research Lab</company>
+    <time>2012-04-02T14:11:00</time>
+    <units>si</units>
+  </head>
+  
+  <cartesian2dSystem>
+    <rigidBody>
+      <coordinates position="0 0" orientation="0"/>
+      <velocities angular="1" linear="10 0"/>
+    </rigidBody>
+    
+    <rigidBody state="static">
+      <coordinates transform="1 0 0
+                              0 1 0
+                              0 0 1"/>
+      <velocities linear="10 0"/>
+    </rigidBody>
+  </cartesian2dSystem>
+  
+  <stepper>
+    <param name="solver" value="nlgs"/>  
+    <param name="iterations" value="10"/>    
+  </stepper>
+  
+</multiBodySystem>

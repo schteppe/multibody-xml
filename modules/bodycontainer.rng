@@ -1,0 +1,29 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+
+  <define name="bodycontainer">
+    <a:documentation> The bodycontainer can contain bodies and transformed bodies. We needed to
+      define this type explicitly to use it recursively. </a:documentation>
+    <empty/>
+    <!-- 
+    <zeroOrMore>
+      <choice>
+        <element name="transform">
+          <ref name="transform"/>
+          <ref name="bodycontainer"/>
+        </element>
+        <element name="body">
+          <ref name="body"/>
+        </element>
+        <element name="rigidBody2d">
+          <ref name="rigidbody2d"/>
+        </element>
+        <element name="rigidBody3d">
+          <ref name="rigidbody3d"/>
+        </element>
+      </choice>
+    </zeroOrMore>
+-->
+  </define>
+</grammar>

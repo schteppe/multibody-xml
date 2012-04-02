@@ -1,0 +1,34 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+
+  <define name="interaction">
+
+    <a:documentation> Base class for interactions. Interactions define how the forces acting on each
+      body are computed. This includes for instance uniform gravity, which is an interaction between
+      the “null” body and all bodies, air friction either with a wind field or the “null” body,
+      simple joints, pairwise forces, etc. This does not include kinematic controllers however. An
+      interaction must contain a list of bodies it acts on and specify which charge it uses for the
+      computations. It is assumed that kinematics and dynamics data is used by all interactions. The
+      method for computation is left entirely to the simulation engine. A difficulty is already
+      apparent here since a spring can have a variable spring constant, it can also be a power law,
+      and the damping coefficient might also depend on velocities and on the extension of the
+      spring. But being such a simple type of interaction, it should be possible for a given engine
+      to use a simplified model. How to do this? </a:documentation>
+
+    <ref name="refobject"/>
+    <interleave>
+      <optional>
+        <attribute name="pairs">
+          <a:documentation> The "pairs" attribute can be used to select body pairs in the system
+            that we want to apply this interaction on. Type is XPath. If a group or transform is
+            selected, all contained pairs will be selected. Perhaps switch to an IDREF list? This
+            way one could choose groups, transforms or bodies. </a:documentation>
+          <choice>
+            <value>*</value>
+          </choice>
+        </attribute>
+      </optional>
+    </interleave>
+  </define>
+</grammar>

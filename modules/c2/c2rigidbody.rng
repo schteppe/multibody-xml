@@ -1,0 +1,68 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+  xmlns:m="http://granular.cs.umu.se/rng/menu/1.0">
+
+  <define name="c2rigidbody">
+    <ref name="rigidbody"/>
+
+    <optional>
+      <attribute name="rotation">
+        <data type="float"/>
+      </attribute>
+    </optional>
+
+    <optional>
+      <element name="coordinates">
+        <choice>
+          <interleave>
+            <attribute name="position">
+              <list>
+                <data type="float"/>
+                <data type="float"/>
+              </list>
+            </attribute>
+            <attribute name="orientation">
+              <data type="float"/>
+            </attribute>
+          </interleave>
+          <attribute name="transform">
+            <list>
+              <data type="float"/>
+              <data type="float"/>
+              <data type="float"/>
+              <data type="float"/>
+              <data type="float"/>
+              <data type="float"/>
+              <data type="float"/>
+              <data type="float"/>
+              <data type="float"/>
+            </list>
+          </attribute>
+        </choice>
+      </element>
+    </optional>
+
+    <optional>
+      <element name="velocities">
+        <choice>
+          <interleave>
+            <optional>
+              <attribute name="linear">
+                <list>
+                  <data type="float"/>
+                  <data type="float"/>
+                </list>
+              </attribute>
+            </optional>
+            <optional>
+              <attribute name="angular">
+                <data type="float"/>
+              </attribute>
+            </optional>
+          </interleave>
+        </choice>
+      </element>
+    </optional>
+
+  </define>
+</grammar>

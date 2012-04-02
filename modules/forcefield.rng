@@ -1,0 +1,13 @@
+<grammar
+   xmlns="http://relaxng.org/ns/structure/1.0"		
+   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+
+  <define name="forcefield">
+    <ref name="interaction"/>
+    <optional><attribute name="type"/></optional>
+    <optional><attribute name="magnitude"/></optional>
+    <optional><attribute name="direction"/></optional>
+  </define>
+
+</grammar>

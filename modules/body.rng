@@ -1,0 +1,83 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+  <define name="body">
+    <ref name="refobject"/>
+
+    <!-- Material reference. Just like a "class" in CSS/HTML, this is only a text that may be matched against when applying material properties from the material table. -->
+    <optional>
+      <attribute name="material">
+        <text/>
+      </attribute>
+    </optional>
+
+    <!-- Choice between cartesian and other coordinate systems. Positions, 
+	 velocities etc must be on same form. -->
+    <choice>
+      <!-- 3D Cartesian coordinate system -->
+      <group>
+        <!-- Coordinates -->
+        <optional>
+          <attribute name="position">
+            <ref name="vec3"/>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="orientation">
+            <ref name="vec4"/>
+          </attribute>
+        </optional>
+
+        <!--velocities -->
+        <optional>
+          <attribute name="velocity">
+            <ref name="vec3"/>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="rotationalVelocity">
+            <ref name="vec3"/>
+          </attribute>
+        </optional>
+
+        <!-- dynamics -->
+        <optional>
+          <attribute name="acceleration">
+            <ref name="vec3"/>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="cmForce">
+            <ref name="vec3"/>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="cmTorque">
+            <ref name="vec3"/>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="mass">
+            <data type="float"/>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="inertia">
+            <ref name="vec3"/>
+          </attribute>
+        </optional>
+        <optional>
+          <attribute name="state">
+            <choice>
+              <value>dynamic</value>
+              <value>static</value>
+              <value>kinematic</value>
+            </choice>
+          </attribute>
+        </optional>
+      </group>
+
+    </choice>
+  </define>
+
+</grammar>
