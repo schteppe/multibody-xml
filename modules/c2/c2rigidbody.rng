@@ -32,17 +32,7 @@
             </interleave>
             <attribute name="transform" a:defaultValue="1 0 0   0 1 0   0 0 1">
               <a:documentation> Affine transform matrix. </a:documentation>
-              <list>
-                <data type="float"/>
-                <data type="float"/>
-                <data type="float"/>
-                <data type="float"/>
-                <data type="float"/>
-                <data type="float"/>
-                <data type="float"/>
-                <data type="float"/>
-                <data type="float"/>
-              </list>
+              <ref name="mat3"/>
             </attribute>
           </choice>
         </element>
@@ -55,10 +45,7 @@
             <interleave>
               <optional>
                 <attribute name="linear" a:defaultValue="0 0">
-                  <list>
-                    <data type="float"/>
-                    <data type="float"/>
-                  </list>
+                  <ref name="vec2"></ref>
                 </attribute>
               </optional>
               <optional>
@@ -77,11 +64,8 @@
           <choice>
             <interleave>
               <optional>
-                <attribute name="linear" a:defaultValue="0 0 0">
-                  <list>
-                    <data type="float"/>
-                    <data type="float"/>
-                  </list>
+                <attribute name="linear" a:defaultValue="0 0">
+                  <ref name="vec2"></ref>
                 </attribute>
               </optional>
               <optional>
@@ -101,10 +85,7 @@
             <interleave>
               <optional>
                 <attribute name="linear" a:defaultValue="0 0">
-                  <list>
-                    <data type="float"/>
-                    <data type="float"/>
-                  </list>
+                  <ref name="vec2"></ref>
                 </attribute>
               </optional>
               <optional>
@@ -126,22 +107,12 @@
               <interleave>
                 <optional>
                   <attribute name="massMatrix">
-                    <list>
-                      <data type="float"/>
-                      <data type="float"/>
-                      <data type="float"/>
-                      <data type="float"/>
-                    </list>
+                    <ref name="mat2"/>
                   </attribute>
                 </optional>
                 <optional>
                   <attribute name="inertiaTensor">
-                    <list>
-                      <data type="float"/>
-                      <data type="float"/>
-                      <data type="float"/>
-                      <data type="float"/>
-                    </list>
+                    <ref name="mat2"/>
                   </attribute>
                 </optional>
               </interleave>

@@ -12,12 +12,12 @@
   </head>
 
   <cartesian2dSystem>
-    <rigidBody>
+    <rigidBody id="b1">
       <coordinates position="0 0" orientation="0"/>
       <velocities angular="1" linear="10 0"/>
     </rigidBody>
 
-    <rigidBody state="static">
+    <rigidBody state="static" id="b2">
       <coordinates transform="1 0 0
                               0 1 0
                               0 0 1"/>
@@ -25,6 +25,7 @@
     </rigidBody>
    
     <gravity/>
+    <contact/>
     
   </cartesian2dSystem>
 

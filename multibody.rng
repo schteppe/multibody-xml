@@ -26,6 +26,7 @@
   <include href="modules/math/vec2.rng"/>
   <include href="modules/math/vec3.rng"/>
   <include href="modules/math/vec4.rng"/>
+  <include href="modules/math/mat2.rng"/>
   <include href="modules/math/mat3.rng"/>
   <include href="modules/math/mat4.rng"/>
   

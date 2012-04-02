@@ -15,6 +15,8 @@
 
       <optional>
         <element name="gravity">
+          <ref name="interaction"/>
+
           <optional>
             <attribute name="direction" a:defaultValue="0 -1">
               <ref name="vec2"/>
@@ -25,6 +27,12 @@
               <data type="float"/>
             </attribute>
           </optional>
+        </element>
+      </optional>
+
+      <optional>
+        <element name="contact">
+          <ref name="interaction"/>
         </element>
       </optional>
     </interleave>
