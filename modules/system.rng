@@ -4,9 +4,12 @@
 
   <define name="system">
 
-    <!-- todo: add general rigid body class here -->
-    <empty></empty>
-    
+    <optional>
+      <element name="interaction">
+        <ref name="interaction"/>
+      </element>
+    </optional>
+
     <a:documentation> Defines the physics scene. The scene contains a system and subsystems. The
       system includes all bodies and all interactions, all input and output ports and signals, all
       filters, followers and events. The system contains the global time stepper. Subsystems can

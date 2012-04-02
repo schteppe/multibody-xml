@@ -4,14 +4,15 @@
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
 
   <define name="c2system">
-    <ref name="system"/>
+    <interleave>
+      <ref name="system"/>
 
-    <zeroOrMore>
-      <element name="rigidBody">
-        <ref name="c2rigidbody"/>
-      </element>
-    </zeroOrMore>
-
+      <zeroOrMore>
+        <element name="rigidBody">
+          <ref name="c2rigidbody"/>
+        </element>
+      </zeroOrMore>
+    </interleave>
   </define>
 
 </grammar>

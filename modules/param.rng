@@ -1,13 +1,10 @@
-<grammar
-   xmlns="http://relaxng.org/ns/structure/1.0"		
-   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-   xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
 
   <define name="param">
-    <a:documentation>
-      A parameter with a name and a value.
-    </a:documentation>
-    
+    <a:documentation> A parameter with a name and a value. </a:documentation>
+
     <!-- Referenceable parameters!? Why not. -->
     <ref name="refobject"/>
 
@@ -15,9 +12,9 @@
     <attribute name="value"/>
     <optional>
       <attribute name="description">
-	<text/>
+        <text/>
       </attribute>
     </optional>
   </define>
-  
+
 </grammar>

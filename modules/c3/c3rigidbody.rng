@@ -1,31 +1,33 @@
-<grammar
-   xmlns="http://relaxng.org/ns/structure/1.0"		
-   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
 
   <define name="rigidbody3d">
-
-    <!-- extend body type -->
     <ref name="rigidbody"/>
-
-    <!-- extend shape container -->
     <ref name="shapecontainer"/>
 
     <interleave>
       <optional>
-	<element name="physical">
-	  <ref name="shapecontainer"/>
-	</element>
+        <element name="physical">
+          <ref name="shapecontainer"/>
+        </element>
       </optional>
       <optional>
-	<element name="visual">
-	  <ref name="shapecontainer"/>
-	</element>
+        <element name="visual">
+          <ref name="shapecontainer"/>
+        </element>
       </optional>
     </interleave>
-    
-    <!-- Allowed shapes -->
-    <optional><element name="sphere"><ref name="sphere"/></element></optional>
-    <optional><element name="plane"><ref name="plane"/></element></optional>
+
+    <optional>
+      <element name="sphere">
+        <ref name="sphere"/>
+      </element>
+    </optional>
+    <optional>
+      <element name="plane">
+        <ref name="plane"/>
+      </element>
+    </optional>
 
   </define>
 </grammar>

@@ -1,68 +1,160 @@
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
   datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
-  xmlns:m="http://granular.cs.umu.se/rng/menu/1.0">
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
 
   <define name="c2rigidbody">
+    <a:documentation> A 2D rigid body in cartesian coordinates. </a:documentation>
     <ref name="rigidbody"/>
 
-    <optional>
-      <attribute name="rotation">
-        <data type="float"/>
-      </attribute>
-    </optional>
+    <interleave>
+      <optional>
+        <attribute name="rotation" a:defaultValue="0">
+          <a:documentation> Angular coordinate. Specified in radians. </a:documentation>
+          <data type="float"/>
+        </attribute>
+      </optional>
 
-    <optional>
-      <element name="coordinates">
-        <choice>
-          <interleave>
-            <attribute name="position">
-              <list>
-                <data type="float"/>
-                <data type="float"/>
-              </list>
-            </attribute>
-            <attribute name="orientation">
-              <data type="float"/>
-            </attribute>
-          </interleave>
-          <attribute name="transform">
-            <list>
-              <data type="float"/>
-              <data type="float"/>
-              <data type="float"/>
-              <data type="float"/>
-              <data type="float"/>
-              <data type="float"/>
-              <data type="float"/>
-              <data type="float"/>
-              <data type="float"/>
-            </list>
-          </attribute>
-        </choice>
-      </element>
-    </optional>
-
-    <optional>
-      <element name="velocities">
-        <choice>
-          <interleave>
-            <optional>
-              <attribute name="linear">
+      <optional>
+        <element name="coordinates">
+          <choice>
+            <interleave>
+              <attribute name="position" a:defaultValue="0 0">
+                <a:documentation> Position vector in 2D space. </a:documentation>
                 <list>
                   <data type="float"/>
                   <data type="float"/>
                 </list>
               </attribute>
-            </optional>
+              <attribute name="orientation">
+                <a:documentation> The angle of orientation, defined clockwise. </a:documentation>
+                <data type="float"/>
+              </attribute>
+            </interleave>
+            <attribute name="transform" a:defaultValue="1 0 0   0 1 0   0 0 1">
+              <a:documentation> Affine transform matrix. </a:documentation>
+              <list>
+                <data type="float"/>
+                <data type="float"/>
+                <data type="float"/>
+                <data type="float"/>
+                <data type="float"/>
+                <data type="float"/>
+                <data type="float"/>
+                <data type="float"/>
+                <data type="float"/>
+              </list>
+            </attribute>
+          </choice>
+        </element>
+      </optional>
+
+      <optional>
+        <element name="velocities">
+          <a:documentation> Velocity. </a:documentation>
+          <choice>
+            <interleave>
+              <optional>
+                <attribute name="linear" a:defaultValue="0 0">
+                  <list>
+                    <data type="float"/>
+                    <data type="float"/>
+                  </list>
+                </attribute>
+              </optional>
+              <optional>
+                <attribute name="angular" a:defaultValue="0">
+                  <data type="float"/>
+                </attribute>
+              </optional>
+            </interleave>
+          </choice>
+        </element>
+      </optional>
+
+      <optional>
+        <element name="acceleration">
+          <a:documentation> Acceleration. Read only. </a:documentation>
+          <choice>
+            <interleave>
+              <optional>
+                <attribute name="linear" a:defaultValue="0 0 0">
+                  <list>
+                    <data type="float"/>
+                    <data type="float"/>
+                  </list>
+                </attribute>
+              </optional>
+              <optional>
+                <attribute name="angular" a:defaultValue="0">
+                  <data type="float"/>
+                </attribute>
+              </optional>
+            </interleave>
+          </choice>
+        </element>
+      </optional>
+
+      <optional>
+        <element name="force">
+          <a:documentation> Force on the body. </a:documentation>
+          <choice>
+            <interleave>
+              <optional>
+                <attribute name="linear" a:defaultValue="0 0">
+                  <list>
+                    <data type="float"/>
+                    <data type="float"/>
+                  </list>
+                </attribute>
+              </optional>
+              <optional>
+                <attribute name="angular" a:defaultValue="0">
+                  <data type="float"/>
+                </attribute>
+              </optional>
+            </interleave>
+          </choice>
+        </element>
+      </optional>
+
+      <optional>
+        <element name="massProperties">
+          <a:documentation>Mass properties. Either given as massmatrix+inertia tensor or
+            density.</a:documentation>
+          <choice>
+            <group>
+              <interleave>
+                <optional>
+                  <attribute name="massMatrix">
+                    <list>
+                      <data type="float"/>
+                      <data type="float"/>
+                      <data type="float"/>
+                      <data type="float"/>
+                    </list>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="inertiaTensor">
+                    <list>
+                      <data type="float"/>
+                      <data type="float"/>
+                      <data type="float"/>
+                      <data type="float"/>
+                    </list>
+                  </attribute>
+                </optional>
+              </interleave>
+            </group>
             <optional>
-              <attribute name="angular">
+              <attribute name="density">
+                <a:documentation>Density given in the units of mass per volume.</a:documentation>
                 <data type="float"/>
               </attribute>
             </optional>
-          </interleave>
-        </choice>
-      </element>
-    </optional>
-
+          </choice>
+        </element>
+      </optional>
+    </interleave>
   </define>
 </grammar>

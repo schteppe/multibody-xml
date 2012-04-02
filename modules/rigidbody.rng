@@ -1,21 +1,10 @@
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
-  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">
 
   <define name="rigidbody">
+    <a:documentation>Base class to rigid bodies in all coordinate systems. Do not confuse this with
+      the rigid body in the general coordinates system.</a:documentation>
     <ref name="body"/>
-    <!--
-    <interleave>
-      <optional>
-        <element name="physical">
-          <ref name="shapecontainer"/>
-        </element>
-      </optional>
-      <optional>
-        <element name="visual">
-          <ref name="shapecontainer"/>
-        </element>
-      </optional>
-    </interleave>
-    -->
   </define>
 </grammar>

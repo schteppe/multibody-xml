@@ -17,18 +17,23 @@
       to use a simplified model. How to do this? </a:documentation>
 
     <ref name="refobject"/>
+
     <interleave>
       <optional>
         <attribute name="pairs">
           <a:documentation> The "pairs" attribute can be used to select body pairs in the system
             that we want to apply this interaction on. Type is XPath. If a group or transform is
-            selected, all contained pairs will be selected. Perhaps switch to an IDREF list? This
-            way one could choose groups, transforms or bodies. </a:documentation>
-          <choice>
-            <value>*</value>
-          </choice>
+            selected, all contained pairs will be selected.</a:documentation>
+          <data type="IDREFS"/>
         </attribute>
       </optional>
+
+      <zeroOrMore>
+        <element name="param">
+          <ref name="param"/>
+        </element>
+      </zeroOrMore>
     </interleave>
+
   </define>
 </grammar>
