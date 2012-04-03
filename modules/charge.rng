@@ -1,0 +1,24 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+  <define name="charge">
+    <ref name="refobject"/>
+    <a:documentation> A charge is something that is used by interactions to compute the forces
+      acting on a body. If a body is connected with a spring or a constraint, then the body position
+      becomes the charge. For an electric field, the charge is the electric charge. For a rigid body
+      connected by a hinge to another, the charge is an attachment frame which specifies the axis of
+      the hinge from the center of mass. For contacts, the charge includes material properties and a
+      geometry which could differ from that of the visuals, or that used for computing mass
+      properties. Also for contacts, one might use several geometries for the case of a contact with
+      a height field, or a contact with a meshed object, etc., as well as several materials for,
+      say, the top and bottom surfaces of an object. One can of course have an “anti-contact” to
+      specify that a body does not collide with another one. All these attributes can be included in
+      a charge of type “contact”. Therefore, a body can contain any number of different charges
+      which are hooks for the interactions. Some basic charges must be assumed by default such as
+      for gravity and contacts in which case default values are used. The list of possible charges
+      and their attributes must be extensible though a large set can be specified in the
+      schema.</a:documentation>
+  </define>
+
+</grammar>

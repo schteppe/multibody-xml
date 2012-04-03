@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+  xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+  datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+  <define name="c2collisionshape">
+    <ref name="collisionshape"/>
+    <interleave>
+
+      <optional>
+        <element name="circle">
+          <optional>
+            <attribute name="radius" a:defaultValue="1">
+              <data type="float"/>
+            </attribute>
+          </optional>
+        </element>
+      </optional>
+
+      <optional>
+        <element name="polygon">
+          <optional>
+            <attribute name="vertices">
+              <a:documentation>Vertices must be three or more. Vertices are on the form: "x1 y1 x2
+                y2 ..."</a:documentation>
+              <list>
+                <data type="float"/>
+                <data type="float"/>
+                <data type="float"/>
+                <data type="float"/>
+                <oneOrMore>
+                  <data type="float"/>
+                  <data type="float"/>
+                </oneOrMore>
+              </list>
+            </attribute>
+          </optional>
+        </element>
+      </optional>
+
+      <optional>
+        <element name="rectangle">
+          <optional>
+            <attribute name="halfExtents" a:defaultValue="1 1">
+              <a:documentation/>
+              <ref name="vec2"/>
+            </attribute>
+          </optional>
+        </element>
+      </optional>
+
+    </interleave>
+  </define>
+
+</grammar>

@@ -12,26 +12,43 @@
   </head>
 
   <cartesian2dSystem>
+    
     <rigidBody id="b1">
       <coordinates position="0 0" orientation="0"/>
       <velocities angular="1" linear="10 0"/>
+      <force angular="0"/>
+      <massProperties massMatrix="1 0   0 1" inertiaTensor="1 0   0 1"/>
+      <collisionShape>
+        <rectangle halfExtents="200 20"/>
+      </collisionShape>
+      <appearance>
+        <rectangle halfExtents="100 20"/>
+      </appearance>
     </rigidBody>
 
     <rigidBody state="static" id="b2">
-      <coordinates transform="1 0 0
-                              0 1 0
-                              0 0 1"/>
+      <coordinates position="0 50"/>
       <velocities linear="10 0"/>
+      <acceleration/>
+      <massProperties density="100"/>
+      <force linear="0 0"/>
+      <collisionShape id="c1">
+        <circle radius="10"/>
+      </collisionShape>
+      <appearance>
+        <circle radius="10"/>
+      </appearance>
     </rigidBody>
-   
+
     <gravity/>
-    <contact/>
-    
+    <contact staticFriction="0.3" kinematicFriction="0.3"/>
+    <distanceConstraint pairs="b1 b2" pivots="0 1 0 0"/>
+
   </cartesian2dSystem>
 
   <stepper>
-    <param name="solver" value="nlgs"/>
-    <param name="iterations" value="10"/>
+    <param name="iterations" value="5"/>
+    <param name="timestep" value="0.16666"/>
   </stepper>
 
 </multiBodySystem>

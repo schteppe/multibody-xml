@@ -18,17 +18,21 @@
         <element name="coordinates">
           <choice>
             <interleave>
-              <attribute name="position" a:defaultValue="0 0">
-                <a:documentation> Position vector in 2D space. </a:documentation>
-                <list>
+              <optional>
+                <attribute name="position" a:defaultValue="0 0">
+                  <a:documentation> Position vector in 2D space. </a:documentation>
+                  <list>
+                    <data type="float"/>
+                    <data type="float"/>
+                  </list>
+                </attribute>
+              </optional>
+              <optional>
+                <attribute name="orientation">
+                  <a:documentation> The angle of orientation, defined clockwise. </a:documentation>
                   <data type="float"/>
-                  <data type="float"/>
-                </list>
-              </attribute>
-              <attribute name="orientation">
-                <a:documentation> The angle of orientation, defined clockwise. </a:documentation>
-                <data type="float"/>
-              </attribute>
+                </attribute>
+              </optional>
             </interleave>
             <attribute name="transform" a:defaultValue="1 0 0   0 1 0   0 0 1">
               <a:documentation> Affine transform matrix. </a:documentation>
@@ -45,7 +49,7 @@
             <interleave>
               <optional>
                 <attribute name="linear" a:defaultValue="0 0">
-                  <ref name="vec2"></ref>
+                  <ref name="vec2"/>
                 </attribute>
               </optional>
               <optional>
@@ -65,7 +69,7 @@
             <interleave>
               <optional>
                 <attribute name="linear" a:defaultValue="0 0">
-                  <ref name="vec2"></ref>
+                  <ref name="vec2"/>
                 </attribute>
               </optional>
               <optional>
@@ -85,7 +89,7 @@
             <interleave>
               <optional>
                 <attribute name="linear" a:defaultValue="0 0">
-                  <ref name="vec2"></ref>
+                  <ref name="vec2"/>
                 </attribute>
               </optional>
               <optional>
@@ -124,6 +128,18 @@
               </attribute>
             </optional>
           </choice>
+        </element>
+      </optional>
+
+      <optional>
+        <element name="collisionShape">
+          <ref name="c2collisionshape"/>
+        </element>
+      </optional>
+
+      <optional>
+        <element name="appearance">
+          <ref name="c2collisionshape"/>
         </element>
       </optional>
     </interleave>

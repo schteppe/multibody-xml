@@ -31,8 +31,30 @@
       </optional>
 
       <optional>
+        <element name="distanceConstraint">
+          <ref name="interaction"/>
+          <optional>
+            <attribute name="pivots">
+              <list>
+                <oneOrMore>
+                  <data type="float"/>
+                  <data type="float"/>
+                </oneOrMore>
+              </list>
+            </attribute>
+          </optional>
+        </element>
+      </optional>
+
+      <optional>
         <element name="contact">
           <ref name="interaction"/>
+          <attribute name="staticFriction">
+            <data type="float"/>
+          </attribute>
+          <attribute name="kinematicFriction">
+            <data type="float"/>
+          </attribute>
         </element>
       </optional>
     </interleave>

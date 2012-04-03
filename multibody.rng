@@ -4,7 +4,9 @@
   <include href="modules/bodycontainer.rng"/>
   <include href="modules/body.rng"/>
   <include href="modules/contact.rng"/>
+  <include href="modules/charge.rng"/>
   <include href="modules/circle.rng"/>
+  <include href="modules/collisionshape.rng"/>
   <include href="modules/damping.rng"/>
   <include href="modules/forcefield.rng"/>
   <include href="modules/head.rng"/>
@@ -32,6 +34,7 @@
   
   <include href="modules/c2/c2system.rng"/>
   <include href="modules/c2/c2rigidbody.rng"/>
+  <include href="modules/c2/c2collisionshape.rng"/>
   
   <include href="modules/c3/c3system.rng"/>
   <include href="modules/c3/c3rigidbody.rng"/>
